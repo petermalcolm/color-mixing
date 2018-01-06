@@ -7,7 +7,10 @@
 (function iife(){
 	console.log('ready to mix colors! ' + colors.length);
 
+	var userColor = 'lightgray';
 	var goalColor = 'lightgray';
+
+	// INITIALIZATION 
 
 	function initPalette() {
 		var palette = document.querySelector('#palette');
@@ -28,6 +31,37 @@
 		}
 	}
 
+	function initGoalColor() {
+		setGoalColor(goalColor);
+	}
+
+	function initSuccessModal() {
+		hideModal();
+		document.querySelector("#successModal").addEventListener('click',function(e) {
+			hideModal();
+		})
+	}
+
+	// MODAL FUNCTIONS
+
+	function hideModal() {
+		getModalStyle().display = "none";
+	}
+
+	function showModal() {
+		getModalStyle().display = "block";
+	}
+
+	function getModalStyle() {
+		return document.querySelector("#successModal").style;
+	}
+
+	function setModalText(newText) {
+		document.querySelector("#successModalContent").innerHTML = newText;
+	}
+
+	// EVENTS
+
 	function eventListenerForSwatch(swatch,hex) {
 		var newUserColor = '#' + hex;
 		swatch.addEventListener('click', function(e) {
@@ -36,13 +70,20 @@
 		})
 	}
 
-	function updateUserColor(newColor) {
-		// TODO: mix existing color with newColor
-		setUserColor(newColor);
+	/**
+	 * Evaluate how close the user is to the color 
+	 */
+	function evaluate() {
+		if( userColor === goalColor ) {
+			showModal();
+			setModalText('You matched the color!');
+		}
 	}
 
-	function initGoalColor() {
-		setGoalColor(goalColor);
+	function updateUserColor(newColor) {
+		// TODO: mix existing color with newColor
+		userColor = newColor;
+		setUserColor(newColor);
 	}
 
 	function nextColor(e) {
@@ -63,18 +104,20 @@
 		document.querySelector('#userColor').style.backgroundColor = newColor;
 	}
 
-	document.addEventListener("DOMContentLoaded", function(event) { 
-		initPalette();
-		initGoalColor();
-	});
-
 	document.querySelector('#nextColor').addEventListener('click', function(e) {
 		nextColor(e);
 	});
 
-	// utils
+	// UTILS
 	function getRandomInt(max) {
 		return Math.floor(Math.random() * Math.floor(max));
 	}
+
+	// ENTRY POINT
+	document.addEventListener("DOMContentLoaded", function(event) { 
+		initPalette();
+		initGoalColor();
+		initSuccessModal();
+	});
 
 }());
