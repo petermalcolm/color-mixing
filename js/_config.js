@@ -1,2 +1,15 @@
-var SERVER = 'localhost:5000';
-var API = 'localhost:5411';
+'use strict';
+var colors = {
+	blue1 : {},
+	blue2 : {},
+	green1 : {},
+	green2 : {},
+	pink : {},
+	red : {},
+	orange : {},
+	yellow : {},
+	purple : {},
+	black : {},
+	white : {},
+	brown : {},
+}
