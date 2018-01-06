@@ -55,48 +55,32 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-.defyw-your-avatar {
-    width: 50px;
+#main, #colors, #palette {
+    border: solid 1px darkgray;
+    margin: 5px;
+    padding: 30px;
+    float: left;
+}
+#palette {
+    background-color: lightgray;
+
+}
+#main {
+    width: 80%;
+}
+#colors, #palette {
+    width: auto;
+}
+.colorChoice {
+    border: solid 1px darkgray;
+    float: left;
+    padding: 10px;
+}
+.colorSwatch {
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
-    padding: 3px 10px;
 }
-
-.defyw-def-suggestions, .defyw-def-details {
-    list-style-type: none;
-}
-
-.defyw-def-suggestions {
-    cursor: pointer;
-    cursor: hand;
-}
-.defyw-def-suggestions > li:hover {
-    background-color: #EEEEEE;
-    width: max-content;
-}
-.defyw-def-suggestions > li:active {
-    color: red;
-}
-
-.defyw-small-btn {
-    display: block;
-    font-size: x-small;
-    margin: -10px 10px 10px 20px;
-}
-
-form label {
-    display: block;
-    margin-left: 5px;
-}
-form input {
-    margin-bottom: 10px;
-    margin-left: 5px;
-}
-form button, form input[type="submit"] {
-    display: block;
-}
-
-
-
 
 
 
