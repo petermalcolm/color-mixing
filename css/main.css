@@ -73,13 +73,26 @@ textarea {
     align-items: center;
 }
 #colors {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    background-color: lightgray;
+    display: flex;
+    justify-content: space-between;
+}
+#colors div.colorFeedback:nth-child(2) {
+    transform: rotate(180deg);
+    transform-origin: 50%;
 }
 .colorFeedback {
-    width 50%;
+    background-color: lightgray;
+    width: 150px;
+    height: 300px;
+    overflow: hidden;
+    border-radius:150px 0 0 150px;
+    -moz-transform-origin: left center;
+    -ms-transform-origin: left center;
+    -o-transform-origin: left center;
+    -webkit-transform-origin: left center;
+    transform-origin: left center;
+    padding: 5px;
+    margin: 5px; /* Splits the circle in two */
 }
 #palette {
     clear: both;
