@@ -55,7 +55,7 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-#main, #colors, #palette {
+#main, #colors, #palette, #textfeedback {
     border: solid 1px darkgray;
     margin: 5px;
     padding: 30px;

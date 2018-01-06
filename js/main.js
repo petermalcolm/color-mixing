@@ -7,7 +7,7 @@
 (function iife(){
 	console.log('ready to mix colors! ' + colors.length);
 
-	var goalColor = 'lightblue';
+	var goalColor = 'lightgray';
 
 	function initPalette() {
 		var palette = document.querySelector('#palette');
