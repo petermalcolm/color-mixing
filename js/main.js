@@ -32,6 +32,7 @@
 		var newUserColor = '#' + hex;
 		swatch.addEventListener('click', function(e) {
 			updateUserColor(newUserColor);
+			evaluate();
 		})
 	}
 
@@ -45,7 +46,13 @@
 	}
 
 	function nextColor(e) {
-		setGoalColor('yellow');
+		// TODO: make goalColor something mixed
+		goalColor = '#' + getRandomColorHex();
+		setGoalColor(goalColor);
+	}
+
+	function getRandomColorHex() {
+		return colors[getRandomInt(colors.length)].hex;
 	}
 
 	function setGoalColor(newColor) {
@@ -64,5 +71,10 @@
 	document.querySelector('#nextColor').addEventListener('click', function(e) {
 		nextColor(e);
 	});
+
+	// utils
+	function getRandomInt(max) {
+		return Math.floor(Math.random() * Math.floor(max));
+	}
 
 }());
