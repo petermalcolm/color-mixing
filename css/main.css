@@ -66,9 +66,23 @@ textarea {
 
 }
 #main {
-    width: 80%;
+    width: 800px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
-#colors, #palette {
+#colors {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background-color: lightgray;
+}
+.colorFeedback {
+    width 50%;
+}
+#palette {
+    clear: both;
     width: auto;
 }
 .colorChoice {
