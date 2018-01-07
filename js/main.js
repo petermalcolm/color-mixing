@@ -73,7 +73,7 @@
 	 * Evaluate how close the user is to the color 
 	 */
 	function evaluate() {
-		if( userColor === goalColor ) {
+		if( JSON.stringify(userColor.sort()) === JSON.stringify(goalColor.sort()) ) {
 			showModal();
 			setModalText('You matched the color!');
 		}
@@ -82,6 +82,7 @@
 	function updateUserColor(newColorHex) {
 		// TODO: mix existing color with newColor
 		userColor.push(newColorHex);
+		userColor.sort();
 		setUserColor('#' + renderColorHex(userColor) );
 	}
 
@@ -96,7 +97,9 @@
 		for(var i = 0; i < 2; i++) {
 			goalColor.push(getRandomColorHex());
 		}
+		goalColor.sort();
 		setGoalColor('#' + renderColorHex(goalColor));
+		nextTry(null);
 	}
 
 	function getRandomColorHex() {
