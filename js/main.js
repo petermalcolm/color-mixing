@@ -85,6 +85,11 @@
 		setUserColor('#' + renderColorHex(userColor) );
 	}
 
+	function nextTry(e) {
+		userColor = [];
+		unsetUserColor();
+	}
+
 	function nextColor(e) {
 		// TODO: make goalColor something mixed
 		goalColor = '#' + getRandomColorHex();
@@ -103,8 +108,16 @@
 		document.querySelector('#userColor').style.backgroundColor = newColor;
 	}
 
+	function unsetUserColor(newColor) {
+		document.querySelector('#userColor').style.backgroundColor = '';
+	}
+
 	document.querySelector('#nextColor').addEventListener('click', function(e) {
 		nextColor(e);
+	});
+
+	document.querySelector('#nextTry').addEventListener('click', function(e) {
+		nextTry(e);
 	});
 
 	// COLOR MANIPULATION
