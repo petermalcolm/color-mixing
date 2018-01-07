@@ -7,8 +7,8 @@
 (function iife(){
 	console.log('ready to mix colors! ' + colors.length);
 
-	var userColor = 'lightgray';
-	var goalColor = 'lightgray';
+	var userColor = [];
+	var goalColor = [];
 
 	// INITIALIZATION 
 
@@ -63,9 +63,8 @@
 	// EVENTS
 
 	function eventListenerForSwatch(swatch,hex) {
-		var newUserColor = '#' + hex;
 		swatch.addEventListener('click', function(e) {
-			updateUserColor(newUserColor);
+			updateUserColor(hex);
 			evaluate();
 		})
 	}
@@ -80,10 +79,10 @@
 		}
 	}
 
-	function updateUserColor(newColor) {
+	function updateUserColor(newColorHex) {
 		// TODO: mix existing color with newColor
-		userColor = newColor;
-		setUserColor(newColor);
+		userColor.push(newColorHex);
+		setUserColor('#' + renderColorHex(userColor) );
 	}
 
 	function nextColor(e) {
@@ -107,6 +106,28 @@
 	document.querySelector('#nextColor').addEventListener('click', function(e) {
 		nextColor(e);
 	});
+
+	// COLOR MANIPULATION
+
+	/**
+	 * Returns a hex value based on an array of colors
+	 */
+	function renderColorHex(colorArray) {
+		var r = 0 , g = 0, b = 0;
+		var rMask = parseInt('FF0000',16);
+		var gMask = parseInt('00FF00',16);
+		var bMask = parseInt('0000FF',16);
+		for (var i = colorArray.length - 1; i >= 0; i--) {
+			r += ( rMask & parseInt(colorArray[i],16) );
+			g += ( gMask & parseInt(colorArray[i],16) );
+			b += ( bMask & parseInt(colorArray[i],16) );
+		}
+		r = (r/colorArray.length) & rMask;
+		g = (g/colorArray.length) & gMask;
+		b = (b/colorArray.length) & bMask;
+		var result = (r|g|b).toString(16).padStart(6,'0');
+		return result;
+	}
 
 	// UTILS
 	function getRandomInt(max) {
