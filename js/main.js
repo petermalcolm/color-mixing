@@ -92,8 +92,11 @@
 
 	function nextColor(e) {
 		// TODO: make goalColor something mixed
-		goalColor = '#' + getRandomColorHex();
-		setGoalColor(goalColor);
+		goalColor = [];
+		for(var i = 0; i < 2; i++) {
+			goalColor.push(getRandomColorHex());
+		}
+		setGoalColor('#' + renderColorHex(goalColor));
 	}
 
 	function getRandomColorHex() {
