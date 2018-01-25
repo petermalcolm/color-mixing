@@ -1,0 +1,23 @@
+{
+  "name": "color-mixing",
+  "version": "1.0.0",
+  "description": "Match colors in a palette",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/petermalcolm/color-mixing.git"
+  },
+  "author": "petermalcolm",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/petermalcolm/color-mixing/issues"
+  },
+  "homepage": "https://github.com/petermalcolm/color-mixing#readme",
+  "dependencies": {
+    "react": "^16.2.0",
+    "redux": "^3.7.2"
+  }
+}
